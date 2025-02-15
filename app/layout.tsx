@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ThemeProvider } from "@/components/ui/providers/theme-providers";
+import { ThemeProvider } from "@/components/providers/theme-providers";
 import { cn } from "@/lib/utils";
 
 const font = Open_Sans({ subsets: ["latin"] });
