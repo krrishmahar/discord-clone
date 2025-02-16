@@ -13,10 +13,10 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+import { Input } from  "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+import FileUpload from "@/components/file-upload";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -65,7 +65,23 @@ export const InitialModel = () => {
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 p-2">
-            <div className="space-y-6   px-6">TODO: Image Upload</div>
+            <div className="space-y-8  px-6">
+              <div className="flex items-center justify-center">
+                <FormField control={form.control} name="imageUrl" 
+                render={(
+                  { field } // Add return statement and destructure `field`
+                ) => (
+                    <FormItem>
+                      <FormControl>
+                        <FileUpload endpoint="serverImage" 
+                        value={field.value}
+                        onChange={field.onChange}
+                        />
+                      </FormControl>
+                    </FormItem>
+                )}/>
+              </div>
+            </div>
             <FormField
               control={form.control}
               name="name"

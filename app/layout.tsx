@@ -20,11 +20,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-      <ThemeProvider attribute="class"  defaultTheme="dark"  storageKey="discord-theme">
-        <body className={`${cn(font.className,
-          "bg-white dark:bg-[#151515]" 
-         )} antialiased`}>{children}</body>
-      </ThemeProvider>
+        <body className={cn(font.className, "bg-white dark:bg-[#151515] antialiased")}>
+          <ThemeProvider attribute="class" defaultTheme="dark" storageKey="discord-theme">
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
