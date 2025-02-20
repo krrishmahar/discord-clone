@@ -20,7 +20,7 @@ const NavigationItem = ({ id, imageUrl, name }: NavigationItemProp) => {
 
   return (
     <ActionTooltip side="right" align="center" label={name}>
-      <button onClick={onClick} className="group relative flex items-center">
+      <button onClick={onClick} className="group relative flex items-center py-2">
         <div className={cn("absolute left-0 bg-zinc-950 dark:bg-white rounded-r-full  transistion-all w-[4px]", 
         params?.serverId !== id && "group-hover:h-[20px]"
             ,params?.serverId === id ? "h-[36px]" : "h[8px]"

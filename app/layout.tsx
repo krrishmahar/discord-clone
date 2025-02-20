@@ -5,6 +5,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-providers";
 import { cn } from "@/lib/utils";
 
+import { ModelProvider } from "@/components/providers/model-providers";
+
 const font = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,7 +23,10 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={cn(font.className, "bg-white dark:bg-[#151515] antialiased")}>
-          <ThemeProvider attribute="class" defaultTheme="dark" storageKey="discord-theme">
+          <ThemeProvider attribute="class" defaultTheme="dark" 
+          enableSystem={false}
+          storageKey="discord-theme">
+            <ModelProvider />
             {children}
           </ThemeProvider>
         </body>
